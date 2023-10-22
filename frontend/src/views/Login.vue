@@ -103,7 +103,7 @@
     </div>
 
     <div class="container">
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
         <div class="card text-center border-0">
           <div class="card-body">
             <div class="col-12">
@@ -111,6 +111,8 @@
                 <img
                   src="./../assets/fingerprint.svg"
                   class="img-fluid"
+                  height="48"
+                  width="48"
                   alt="..."
                 />
                 WebAuthn Login
@@ -184,12 +186,11 @@ import TokenService from "../services/token";
 import { Modal } from "bootstrap";
 
 import { ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 
 const email = ref("" as string);
 const router = useRouter();
 const token = ref("" as string);
-const message = ref("" as string);
 const registered = ref(
   localStorage.getItem("deviceRegistered") === "true" ? true : false
 );
@@ -242,6 +243,7 @@ function login() {
     WebAuthnService.loginRead(response.data).then(async (response: any) => {
       const credentials = response[0];
       const privKey = response[1];
+      const challengeOptions = response[2];
 
       console.log(credentials.clientExtensionResults.largeBlob);
 
@@ -267,11 +269,11 @@ function login() {
         return;
       }
 
-      WebAuthnService.login(response.data, credentials).then((response: any) => {
+      WebAuthnService.login(challengeOptions, credentials).then((response: any) => {
         if (response.data.verified) {
           console.log("login verified, save token");
           TokenService.setToken(response.data.jwt);
-          router.push("Home");
+          router.push("/");
         }
       });
     });

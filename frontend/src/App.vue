@@ -10,7 +10,7 @@ import Footer from "./components/Footer.vue";
 <template>
   <div>
     <Navbar></Navbar>
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <router-view />
     <Footer></Footer>
   </div>

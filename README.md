@@ -2,6 +2,8 @@
 
 #### working draft
 
+![Alt text](media/encryption_capture.gif)
+
 ## important source files
 
 - /backend/src/webauthn/index.ts -> all functions for creating registration and authentication options

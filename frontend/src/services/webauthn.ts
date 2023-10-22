@@ -120,7 +120,7 @@ class WebAuthnService {
 
         }
 
-        return [credentials, privKey];
+        return [credentials, privKey, challengeOptions];
     }
 
     async loginWrite(challengeOptions: any): Promise<any> {
