@@ -8,10 +8,12 @@ import Footer from "./components/Footer.vue";
 
 <!-- eslint-disable vue/no-multiple-template-root -->
 <template>
-  <Navbar></Navbar>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <router-view />
-  <Footer></Footer>
+  <div>
+    <Navbar></Navbar>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <router-view />
+    <Footer></Footer>
+  </div>
 </template>
 
 <style>
@@ -22,4 +24,19 @@ import Footer from "./components/Footer.vue";
   text-align: center;
   color: #2c3e50;
 }
+
+.btn-primary {
+  background-color: #3db984;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #32475e;
+}
+
+.btn-primary:disabled {
+  background-color: #32475e;
+  opacity: 1;
+}
+
 </style>

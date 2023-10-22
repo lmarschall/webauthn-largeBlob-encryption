@@ -9,11 +9,11 @@
           height="24"
           class="d-inline-block align-text-top"
         />
-        TEMPLATE
+        WebAuthn LargeBlob Encryption Example
       </a>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          PILL
+          Hello User {USERNAME}
           <!-- <router-link
             v-bind:to="{ name: 'Home' }"
             class="nav-link"
