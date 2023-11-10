@@ -1,5 +1,5 @@
 import axios from "axios";
-import WebCryptoService from "crypto";
+// import WebCryptoService from "crypto";
 import {
   startRegistration,
   startAuthentication,
@@ -101,7 +101,9 @@ class WebAuthnService {
         console.log(credentials);
 
         // TODO check if read was successful
+        //@ts-ignore
         if (Object.keys(credentials.clientExtensionResults.largeBlob).length) {
+            //@ts-ignore
             const keyBuffer = String.fromCodePoint(...new Uint8Array(credentials.clientExtensionResults.largeBlob.blob));
             console.log(JSON.parse(keyBuffer));
             privKey = await window.crypto.subtle.importKey(
